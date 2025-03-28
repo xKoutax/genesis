@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Génesis</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5c1d1; /* Fondo rosado */
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fly {
+            0% { left: -30%; }
+            100% { left: 110%; }
+        }
+
+        @keyframes fireworks {
+            0% { transform: scale(0); opacity: 1; }
+            80% { transform: scale(1); opacity: 1; }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(-30px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.8; }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100vh); }
+        }
+
+        .message {
+            font-size: 40px;
+            font-weight: bold;
+            color: #d60000;
+            text-shadow: 3px 3px 6px #fff;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+            z-index: 3;
+        }
+
+        .frame {
+            width: 300px; /* Recudido el tamaño del recuadro */
+            height: 400px;
+            border: 10px solid #f0a5b5;
+            border-radius: 20px;
+            position: relative;
+            padding: 20px;
+            overflow: hidden;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .cake {
+            width: 250px;
+            height: auto;
+            position: absolute;
+            bottom: 0;
+            animation: bounce 2s infinite;
+        }
+
+        .card {
+            position: absolute;
+            top: 160px;
+            width: 80px;
+            height: 80px;
+            background: white;
+            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        .card img {
+            width: 50px;
+            height: auto;
+        }
+
+        .card-message {
+            position: absolute;
+            top: 10px;
+            width: 80%;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 20px;
+            color: #d60000;
+            text-align: center;
+        }
+
+        .plane-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            animation: fly 12s linear infinite;
+            z-index: 1;
+        }
+
+        .plane-container.first {
+            top: 5%; /* Aviones más arriba */
+            animation-delay: 0s;
+        }
+
+        .plane-container.second {
+            top: 3%; /* Aviones más arriba */
+            animation-delay: 6s;
+        }
+
+        .plane {
+            width: 100px;
+        }
+
+        .banner {
+            margin-left: 10px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d60000;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .firework {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, #ff0000, transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: fireworks 1.5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            border: 2px solid #ff4d6d;
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-45deg);
+            animation: floatUp 6s linear infinite;
+            opacity: 0.8;
+            box-shadow: 0 0 8px #ff4d6d;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            background-color: transparent;
+            border: 2px solid #ff4d6d;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Música de fondo (Reproducción sin mostrar video) -->
+    <iframe width="0" height="0" style="display:none;" src="https://www.youtube.com/embed/xvVUPGI8Kgo?autoplay=1&mute=0&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1&playlist=xvVUPGI8Kgo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <div class="message">Feliz Cumpleaños Génesis</div>
+    <div class="frame">
+        <img src="https://acegif.com/wp-content/uploads/tort-40.gif" class="cake" alt="Pastel de cumpleaños">
+        <div class="card-message">Hoy celebramos más que un año más de vida; celebramos la persona increíble que eres, llena de amor, alegría y luz. Que este nuevo año de vida te traiga más momentos especiales, risas sinceras y sueños cumplidos..</div>
+        <div class="card" onclick="openCard()">
+            <img src="https://th.bing.com/th/id/OIP.Bgceadtx94UFwdryCgmjBwHaHa?rs=1&pid=ImgDetMain" alt="Carta">
+        </div>
+    </div>
+
+    <!-- Avionetas -->
+    <div class="plane-container first">
+        <img src="https://w7.pngwing.com/pngs/63/465/png-transparent-airplane-cartoon-cartoon-airplane-s-comics-mode-of-transport-vehicle-thumbnail.png" class="plane">
+        <div class="banner">Feliz Cumpleaños</div>
+    </div>
+
+    <div class="plane-container second">
+        <img src="https://w7.pngwing.com/pngs/63/465/png-transparent-airplane-cartoon-cartoon-airplane-s-comics-mode-of-transport-vehicle-thumbnail.png" class="plane">
+        <div class="banner">Eres especial</div>
+    </div>
+
+    <!-- Corazones flotando de abajo hacia arriba -->
+    <script>
+        // Fuegos artificiales
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.top = Math.random() * 100 + 'vh';
+            firework.style.background = `radial-gradient(circle, hsl(${Math.random()*360}, 100%, 60%), transparent)`;
+            document.body.appendChild(firework);
+            setTimeout(() => {
+                firework.remove();
+            }, 1500);
+        }
+        setInterval(createFirework, 250);
+
+        // Corazones flotando de abajo hacia arriba
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 10000);
+        }, 300);
+    </script>
+
+    <script>
+    function openCard() {
+        const newWindow = window.open('', '_blank', 'width=600,height=600');
+        newWindow.document.write(`
+            <!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Mensaje Especial</title>
+                <style>
+                    body {
+                        font-family: 'Georgia', serif;
+                        background-color: #f8e7e1;
+                        color: #9a5a5a;
+                        text-align: center;
+                        padding: 20px;
+                    }
+                    .content {
+                        background-color: rgba(255, 255, 255, 0.9);
+                        padding: 30px;
+                        border-radius: 20px;
+                        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+                        max-width: 550px;
+                        margin: 0 auto;
+                        text-align: left;
+                        font-size: 18px;
+                    }
+                    h1 {
+                        font-size: 40px;
+                        color: #c44366;
+                        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                        margin-bottom: 20px;
+                    }
+                    p {
+                        font-size: 20px;
+                        line-height: 1.8;
+                        color: #9a5a5a;
+                    }
+                    .photo {
+                        margin: 20px 0;
+                        max-width: 100%;
+                        border-radius: 50%;
+                        border: 5px solid #e7c1d3;
+                        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                    }
+                    .signature {
+                        margin-top: 30px;
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: #c44366;
+                        font-style: italic;
+                    }
+                    .heart {
+                        color: #c44366;
+                        font-size: 30px;
+                    }
+                    .message {
+                        background: linear-gradient(145deg, #f8c8d7, #f2a8b7);
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="content">
+                    <h1>Para mi querida Génesis</h1>
+                    <img src="https://scontent.fgye30-1.fna.fbcdn.net/v/t39.30808-6/487047514_1815052365702107_1936992163315658998_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=6dRp_xEpAeMQ7kNvgEcBPpy&_nc_oc=AdndcYn7N_A-egJqxaJ-_Q5-Xs2IjxqVTGUoYVm_XzAyIpXzfkJeEjvOSoHEhV4cnlQc4OyWqCTJoLD8_IB2vdws&_nc_zt=23&_nc_ht=scontent.fgye30-1.fna&_nc_gid=TOX_sl6fvL5DxCErWuK11w&oh=00_AYFoTqSH5r2m4KzhPUam9mK-CNBFt97SsZFQUg9KF3Oy3A&oe=67EC09DA" class="photo" alt="Génesis">
+                    <p class="message">Aunque el tiempo y las circunstancias nos hayan llevado por diferentes caminos, quiero que sepas que siempre estarás en mi corazón. Tú, Génesis, eres una persona única, hermosa tanto por dentro como por fuera. Cada momento compartido fue un regalo, y cada recuerdo que guardo de ti me hace sonreír.</p>
+                    <p class="message">En tu cumpleaños, no solo celebro tu vida, sino también la amistad que siempre hemos tenido. Gracias por ser la increíble persona que eres. Siempre estaré agradecido por haberte conocido, y aunque ya no estemos juntos, mi cariño por ti sigue siendo el mismo. Eres la razón de muchas de mis sonrisas, y siempre lo serás.</p>
+                    <p class="heart">❤️</p>
+                    <p class="signature">Con cariño, siempre tu amigo.</p>
+                </div>
+            </body>
+            </html>
+        `);
+    }
+</script>
+
+</body>
+
+</html>
